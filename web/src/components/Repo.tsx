@@ -19,7 +19,15 @@ export default function Repo({ repo, setFilter }: any) {
         {repo.language}
       </button>
       <p>forks: {repo.forks_count}</p>
-      {toggleDetials && <RepoDetails fullName={repo.full_name} />}
+
+      {toggleDetials && (
+        <div className="repo-details">
+          <button className="close-btn" onClick={() => setToggleDetails(false)}>
+            Back
+          </button>
+          <RepoDetails repoName={repo.name} fullName={repo.full_name} />
+        </div>
+      )}
     </div>
   );
 }

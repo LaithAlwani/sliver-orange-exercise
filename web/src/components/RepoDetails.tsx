@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-export default function RepoDetails({ fullName }: any) {
+export default function RepoDetails({ repoName, fullName }: any) {
   const [readmeFile, setReadmeFile] = useState('');
 
   useEffect(() => {
@@ -10,11 +10,14 @@ export default function RepoDetails({ fullName }: any) {
     }
   }, [readmeFile, fullName]);
   return (
-    <div>
-      <p>commit Date:</p>
-      <p>Author:</p>
-      <p>message:</p>
-      {readmeFile && <p>Readme</p>}
-    </div>
+    <>
+      <div className="repo-details-content">
+        <h3>{repoName}</h3>
+        <p>commit Date:</p>
+        <p>Author:</p>
+        <p>message:</p>
+        {readmeFile && <p>Readme</p>}
+      </div>
+    </>
   );
 }
