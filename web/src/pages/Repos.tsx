@@ -17,6 +17,7 @@ export function Repos() {
     console.log(orderedData);
   };
 
+  //fetchs data from API
   const getRepos = () => {
     fetch('http://localhost:4000/repos')
       .then((res) => res.json())
@@ -27,7 +28,6 @@ export function Repos() {
   };
 
   useEffect(() => {
-    //fetchs data from API
     if (!repos.length) {
       getRepos();
     }

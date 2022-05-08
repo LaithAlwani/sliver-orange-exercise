@@ -4,9 +4,9 @@ export default function RepoDetails({ repoName, fullName }: any) {
 
   useEffect(() => {
     if (!readmeFile) {
-      setReadmeFile(
-        `https://raw.githubusercontent.com/${fullName}/master/README.md.`
-      );
+      //get readme File from api using the repo fullName
+      //variable and set it using setReadmeFile
+      setReadmeFile('');
     }
   }, [readmeFile, fullName]);
   return (
@@ -16,6 +16,7 @@ export default function RepoDetails({ repoName, fullName }: any) {
         <p>commit Date:</p>
         <p>Author:</p>
         <p>message:</p>
+        {/* render readme file if exists  */}
         {readmeFile && <p>Readme</p>}
       </div>
     </>
