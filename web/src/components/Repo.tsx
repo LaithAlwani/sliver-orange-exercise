@@ -9,7 +9,6 @@ export default function Repo({ repo, setFilter }: any) {
       <div onClick={() => setToggleDetails(!toggleDetials)} className="card">
         <h3>{repo.name}</h3>
         <p>{repo.description}</p>
-        <p>{repo.created_at}</p>
         <button
           className="btn"
           onClick={(e) => {
