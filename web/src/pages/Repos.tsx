@@ -34,23 +34,28 @@ export function Repos() {
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {filter && (
-          <p>
-            filter: {filter} <span onClick={() => setFilter('')}>X</span>
-          </p>
-        )}
-        {repos ? (
-          repos
+    <div className="content">
+      {filter && (
+        <p>
+          filter:{' '}
+          <button className="btn" onClick={() => setFilter('')}>
+            {filter} X
+          </button>
+        </p>
+      )}
+      {repos ? (
+        <ul className="repo-list">
+          {repos
             .filter((repo: any) => repo.language.includes(filter))
             .map((repo: any) => (
-              <Repo key={repo.id} repo={repo} setFilter={setFilter} />
-            ))
-        ) : (
-          <p>no repos found</p>
-        )}
-      </header>
+              <li key={repo.id}>
+                <Repo repo={repo} setFilter={setFilter} />
+              </li>
+            ))}
+        </ul>
+      ) : (
+        <p>no repos found</p>
+      )}
     </div>
   );
 }
